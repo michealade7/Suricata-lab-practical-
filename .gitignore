@@ -1,0 +1,14 @@
+# Evidence files that may become large
+*.pcap
+*.pcapng
+
+# Temporary editor files
+*~
+*.swp
+
+# Local Suricata logs
+*.log
+
+# Python cache
+__pycache__/
+*.pyc

@@ -1,0 +1,35 @@
+# Suricata IDS Lab Command Reference
+
+suricata --build-info
+suricata -V
+
+sudo apt update
+sudo apt install suricata -y
+
+ip addr
+ip route
+
+sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.backup
+ls -l /etc/suricata/
+
+sudo nano /etc/suricata/suricata.yaml
+
+sudo suricata-update
+ls -lh /var/lib/suricata/rules/
+
+sudo nano /etc/suricata/rules/local.rules
+
+sudo suricata -T -c /etc/suricata/suricata.yaml
+sudo suricata -T -c /etc/suricata/suricata.yaml 2>&1 | grep 1000001
+sudo suricata -T -c /etc/suricata/suricata.yaml 2>&1 | grep "SURICATA ICMP TEST ALERT"
+
+sudo grep -n "SURICATA ICMP TEST ALERT" /etc/suricata/rules/local.rules
+
+sudo systemctl restart suricata
+sudo systemctl status suricata
+
+sudo tail -f /var/log/suricata/suricata.log
+sudo tail -f /var/log/suricata/fast.log
+sudo tail -f /var/log/suricata/eve.json
+
+ping -c 4 <LAB-TARGET-IP>
